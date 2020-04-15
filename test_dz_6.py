@@ -1,3 +1,6 @@
+#from DZ_lesson_4 import f_more_name # - закоментировал специально - "не дает работать" запускает все функции
+import random
+
 #первая функция для тестирования простые числа
 def f_prost_chisla(n):
     digit = []
@@ -78,7 +81,7 @@ def f_mnogitely(n):
     if n > 1:
        Mnogitely.append(n)
     return Mnogitely
-print(f_mnogitely(144))
+#print(f_mnogitely(144))
 
 def test_1_f_mnogitely():
     assert f_mnogitely(144) == [2, 2, 2, 2, 3, 3]
@@ -89,3 +92,41 @@ def test_1_f_mnogitely():
 # Проверка на длину списка множителей числа 144
 def test_3_f_mnogitely():
     assert len(f_mnogitely(144)) == 6
+
+
+#
+##Задание о грязной функции Pro
+#
+#if __name__ == '__main__': Марат не могу подключить одну функцию из файла предыдущего урока. Он прогоняет
+                            # весь файл а в нем подключение других функций и файла log. Перенес все нужные данные для
+                            # работы одной лишь нужной функции. Подскажите что не так. Ведь под "if..." идет дальше код
+list_name = ['Пётр', 'Емельян', 'Зенон', 'Устин', 'Цицерон', 'Роман', 'Цезарь', 'Ян', 'Эрик', 'Жерар', 'Даниил', \
+            'Арсений', 'Родион', 'Клим', 'Павел', 'Яков', 'Чеслав', 'Марк', 'Шерлок', 'Нестор']
+
+N = 100
+def f_more_name(name, x):
+     new_list_name = random.choices(name, k=x)
+     return new_list_name
+#print(f_more_name(list_name, 100))
+
+def test_f_1_more_name():
+    '''
+    Узнаем на выводе чтобы было 100 имен
+    :return: 100
+    '''
+    assert len(f_more_name(list_name, N)) == 100
+
+
+
+def test_f_2_more_name():
+    '''
+    Проверяем на совпадение типов данных на выводе
+    :return: list
+    '''
+    assert type(f_more_name(list_name, N)) == type(list_name)
+
+
+
+
+
+
